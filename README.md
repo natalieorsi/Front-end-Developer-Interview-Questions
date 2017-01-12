@@ -1,9 +1,5 @@
 #Front-end Job Interview Questions
 
-This file contains a number of front-end interview questions that can be used when vetting potential candidates. It is by no means recommended to use every single question here on the same candidate (that would take hours). Choosing a few items from this list should help you vet the intended skills you require.
-
-**Note:** Keep in mind that many of these questions are open-ended and could lead to interesting discussions that tell you more about the person's capabilities than a straight answer would.
-
 ## Table of Contents
 
   1. [General Questions](#general-questions)
@@ -16,57 +12,101 @@ This file contains a number of front-end interview questions that can be used wh
   1. [Coding Questions](#coding-questions)
   1. [Fun Questions](#fun-questions)
 
-## Getting Involved
+## Credit
 
-  1. [Contributors](#contributors)
-  1. [How to Contribute](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/CONTRIBUTING.md)
+  1. [Written By](#contributors)
   1. [License](https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/LICENSE.md)
 
 #### General Questions:
 
 * What did you learn yesterday/this week?
+  - 1/11/17: I got the flu this week, but I did learn more about how handlers work in Google App Engine.
 * What excites or interests you about coding?
-* What is a recent technical challenge you experienced and how did you solve it?
+  - I love the immediate reward that solving problems gives you in computer science as opposed to physics or math, where results can take longer to interpret or may be ambiguous.
+* What is a recent technical challenge you experienced and how did you solve it? 
+  - I had to create separate comment and like functions in Google App Engine for my blog project, and kept facing debugging issues. I went back to the basics, simplified my project and my understanding of handlers and got it back working by separating everything into classes instead of handlers.
 * What UI, Security, Performance, SEO, Maintainability or Technology considerations do you make while building a web application or site?
+  - UI: Less is more. To draw on Roman Mars, design is 99% invisible. The user should not even notice how easy your site is to use, unless they reflect on it.
+  - Security: Security is a game of always staying ahead of trends. I try to read on best current practices often and implement them.
+  - SEO: I study similar competitors, see where their backlinks are coming from, how they are formatting things. It's not about stealing, but about understanding how they optimize their searchability.
+  - Performance: Javascript and media are the biggest slow-downs, and are the primary focuses of optimization. JS must be merged and minified where possible, and images have to be optimized. I also believe in rendering only the best image necessary for the device resolution.
+  - Maintainability: Commenting, consistency, and immutability.
+  - Technology: Whatever does the job. This means whatever does the job **and** is used by my collaborators.
 * Talk about your preferred development environment.
+  - I prefer Mac, but I have an XPS 13, which isn't so bad.
+  - I use Sublime Text, Spyder and Chrome Canary.
 * Which version control systems are you familiar with?
+  - Github
 * Can you describe your workflow when you create a web page?
+  - Testing after each step: Create Google App project, create configuration files (.yaml), then create main python file with handlers. Create Jinja framework helpers to speed up coding. Create template HTML files and load in Bootstrap. Create additional CSS file for further theming. Create handlers and other functions as needed in Python until web page is performing as desired, creating necessary HTML structures as required to test. Lastly, create any additional HTML structures, text, images, and styling. After this, it's testing, security, optimization, SEO, etc.
 * If you have 5 different stylesheets, how would you best integrate them into the site?
+  - I would probably merge them and minify them using Grunt.
 * Can you describe the difference between progressive enhancement and graceful degradation?
+  - Progressive Enhancement is the process of slowly adding cutting edge features to your website while not breaking it. Graceful Degradation is the process of trying to ensure your website will still at least marginally function even on the oldest browsers, using workarounds should your modern features fail.
 * How would you optimize a website's assets/resources?
+  - I answered this for an earlier question.
 * How many resources will a browser download from a given domain at a time?
+  - 6
   * What are the exceptions?
+    - Firefox will do 8
 * Name 3 ways to decrease page load (perceived or actual load time).
+  - Limit @media requests
+  - Limit number of script calls by merging files (and minifying them)
+  - Optimize image and media files
 * If you jumped on a project and they used tabs and you used spaces, what would you do?
+  - I would have to suck it up and use tabs, which are better.
 * Describe how you would create a simple slideshow page.
+  - I would use SlidesJS for JQuery. No reason to reinvent the wheel and waste my employer's time.
 * If you could master one technology this year, what would it be?
+  - I definitely want to master more than one this year! .NET, VB, Haskell and Flask are a few that I want to master this month.
 * Explain the importance of standards and standards bodies.
 * What is Flash of Unstyled Content? How do you avoid FOUC?
+  - That gross moment where none of the text is wearing clothes... I mean, styles. You can avoid this by loading scripts with "async" enabled, and by placing them in `<head>`.
 * Explain what ARIA and screenreaders are, and how to make a website accessible.
+  - Accessible Rich Internet Applications and screenreaders are the only way differently abled people access the web. This can mean no Ajax, no dynamicism, and many images are unavailable to them. One way to combat this is by using modern HTML `<section>`, `<header>`, and other semantic tags, as well as providing `alt` tags, and simplifying overall site structure to be more screenreader-friendly. However, this is not enough. With WAI-ARIA, you can also supply roles for complex navigation techniques and APIs, making this framework exciting and necessary. I am passionate about accessibility because of the friends I made in college, who needed special accomodations while also taking a special place in my heart, and I will fight for their right to browse. My first web development job was in making a department website screenreader friendly.
 * Explain some of the pros and cons for CSS animations versus JavaScript animations.
+  - CSS is more CPU-efficient, and doesn't require a JavaScript call. However, CSS is not logic friendly, while JavaScript is a logic language.
 * What does CORS stand for and what issue does it address?
-
+  - Cross Origin Resource Sharing is primarily a JavaScript concept that seeks to ignore browsers' built-in protection against script-originated cross-domain resource requests. You would do this if you wanted to use multiple servers.
 #### HTML Questions:
 
 * What does a `doctype` do?
+  - `doctype` tells legacy browsers what language the webpage was written in.
 * What's the difference between full standards mode, almost standards mode and quirks mode?
+  - These three modes were implemented because when the W3 standards were created, it took a long time for most sites to start meeting the standards, and browsers didn't want to break the internet. These modes instead are the browser's "guess" as to how "quirky" the website is, that is, how poorly it fits the current standards, in order to render a consistent user experience.
 * What's the difference between HTML and XHTML?
+  - XHTML is eXtensible HTML, is stricter than HTML, and is based on XML instead of SGML.
 * Are there any problems with serving pages as `application/xhtml+xml`?
+  - Early versions of IE will not recognize them as webpages.
 * How do you serve a page with content in multiple languages?
+  - You can use META tags or `lang` to specify the languages.
 * What kind of things must you be wary of when design or developing for multilingual sites?
+  - Some of the same issues any time you change text, including accomodating varying line and words lengths.
+  - Setting `charset` to UTF-8.
+  - `dir` and `hreflang` attributes to specify the language direction and link language.
 * What are `data-` attributes good for?
+  - *Not yet answered*
 * Consider HTML5 as an open web platform. What are the building blocks of HTML5?
+  - *Not yet answered*
 * Describe the difference between a `cookie`, `sessionStorage` and `localStorage`.
+  - *Not yet answered*
 * Describe the difference between `<script>`, `<script async>` and `<script defer>`.
+  - *Not yet answered*
 * Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?
+  - *Not yet answered*
 * What is progressive rendering?
+  - *Not yet answered*
 * Have you used different HTML templating languages before?
+  - *Not yet answered*
 
 #### CSS Questions:
 
 * What is the difference between classes and IDs in CSS?
+  - *Not yet answered*
 * What's the difference between "resetting" and "normalizing" CSS? Which would you choose, and why?
+  - *Not yet answered*
 * Describe Floats and how they work.
+  - *Not yet answered*
 * Describe z-index and how stacking context is formed.
 * Describe BFC(Block Formatting Context) and how it works.
 * What are the various clearing techniques and which is appropriate for what context?
