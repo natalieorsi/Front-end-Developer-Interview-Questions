@@ -68,6 +68,7 @@
   - CSS is more CPU-efficient, and doesn't require a JavaScript call. However, CSS is not logic friendly, while JavaScript is a logic language.
 * What does CORS stand for and what issue does it address?
   - Cross Origin Resource Sharing is primarily a JavaScript concept that seeks to ignore browsers' built-in protection against script-originated cross-domain resource requests. You would do this if you wanted to use multiple servers.
+
 #### HTML Questions:
 
 * What does a `doctype` do?
